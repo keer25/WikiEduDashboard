@@ -48,12 +48,17 @@ const Feedback = React.createClass({
     let modal;
     let messages = this.props.feedback[this.props.assignment.article_id];
     const feedbackList = [];
-    if (!messages) {
-      messages = [{ message: 'The Article doesn\'t exist' }];
-    }
+    // if (!messages) {
+    //   console.log('No mesages');
+    //   messages = [{ message: 'The Article doesn\'t exist' }];
+    // }
 
-    for (let i = 0; i < messages.length; i++) {
-      feedbackList.push(<li>{messages[i].message}</li>);
+    console.log(messages);
+    if (messages) {
+      console.log('messages');
+      for (let i = 0; i < messages.length; i++) {
+        feedbackList.push(<li>{messages[i].message}</li>);
+      }
     }
     if (!this.state.show) {
       modal = <div className="empty" />;

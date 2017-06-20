@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 class RevisionFeedbackService
   # Imports the features from the revisions if revisions is nil otherwise uses the features passed
-  def initialize(features = nil, revision = nil)
-    @revision = revision
-    if @revision
-      @features = @revision.features
-    else
-      @features = features
-    end
+  def initialize(features)
+    @features = features
+    puts @features
   end
 
   def feedback
@@ -17,6 +13,8 @@ class RevisionFeedbackService
     structure_feedback
     wikilinks_feedback
     default_feedback
+    puts 'feedback'
+    puts @feedback
     @feedback
   end
 
